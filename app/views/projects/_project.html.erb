@@ -1,0 +1,17 @@
+<div class="space-y-4">
+  <div class="grid grid-cols-1 gap-4">
+    <% projects.each do |project| %>
+      <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+        <%= link_to project.name, project_path(project), class: "text-xl font-semibold text-blue-600 hover:text-blue-800" %>
+        <p class="text-gray-600 mt-2"><%= truncate(project.description, length: 100) %></p>
+        <div class="mt-4 flex justify-between items-center text-sm text-gray-500">
+          <span><%= project.tasks.count %> tasks</span>
+          <span><%= project.members.count %> members</span>
+          <span class="<%= project.archived_at ? 'text-red-500' : 'text-green-500' %>">
+            <%= project.archived_at ? "Archived" : "Active" %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

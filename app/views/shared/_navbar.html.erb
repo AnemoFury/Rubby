@@ -1,0 +1,20 @@
+<nav class="bg-white shadow">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex items-center space-x-8">
+      <%= link_to "Project Hub", projects_path, class: "font-bold text-xl text-blue-600" %>
+      <% if user_signed_in? %>
+        <%= link_to "Projects", projects_path, class: "text-gray-600 hover:text-gray-900" %>
+      <% end %>
+    </div>
+
+    <div class="flex items-center space-x-4">
+      <% if user_signed_in? %>
+        <span class="text-gray-600"><%= current_user.name %></span>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-secondary" %>
+      <% end %>
+    </div>
+  </div>
+</nav>

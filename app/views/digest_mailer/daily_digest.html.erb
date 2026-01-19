@@ -1,0 +1,27 @@
+<h1>Your Project Hub Daily Digest</h1>
+
+<p>Hi <%= @user.name %>,</p>
+
+<p>Here's a summary of your task updates from the last 24 hours:</p>
+
+<h2>Updated Tasks</h2>
+<% @tasks.each do |task| %>
+  <div style="border: 1px solid #ddd; padding: 10px; margin: 10px 0;">
+    <h3><%= link_to task.title, project_task_url(task.project, task) %></h3>
+    <p>
+      <strong>Project:</strong> <%= task.project.name %><br>
+      <strong>Status:</strong> <%= task.status.humanize %><br>
+      <strong>Updated:</strong> <%= task.updated_at.strftime("%B %d, %Y at %I:%M %p") %>
+    </p>
+  </div>
+<% end %>
+
+<p>
+  <%= link_to "View All Tasks", projects_url %><br>
+  Have a productive day!
+</p>
+
+<p>
+  Best regards,<br>
+  Project Hub Team
+</p>

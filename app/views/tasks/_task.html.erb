@@ -1,0 +1,24 @@
+<div class="bg-white rounded-lg shadow p-4 mb-3 task-card cursor-move hover:shadow-lg transition" data-task-id="<%= task.id %>">
+  <div class="flex justify-between items-start">
+    <div class="flex-1">
+      <h4 class="font-semibold text-gray-800"><%= task.title %></h4>
+      <p class="text-sm text-gray-600 mt-1"><%= truncate(task.description, length: 60) %></p>
+    </div>
+    <span class="text-xs px-2 py-1 rounded-full <%= case task.priority; when "High" then "bg-red-100 text-red-800"; when "Medium" then "bg-yellow-100 text-yellow-800"; else "bg-green-100 text-green-800"; end %>">
+      <%= task.priority %>
+    </span>
+  </div>
+
+  <div class="mt-3 flex justify-between items-center text-xs text-gray-500">
+    <div class="flex -space-x-2">
+      <% task.assignees.each do |user| %>
+        <div class="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center border border-white" title="<%= user.name %>">
+          <%= user.name[0].upcase %>
+        </div>
+      <% end %>
+    </div>
+    <span class="text-gray-400">
+      <%= time_ago_in_words(task.updated_at) %> ago
+    </span>
+  </div>
+</div>

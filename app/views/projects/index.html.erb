@@ -1,0 +1,15 @@
+<div class="space-y-4">
+  <div class="flex justify-between items-center">
+    <h1 class="text-3xl font-bold">My Projects</h1>
+    <%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
+  </div>
+
+  <% if @projects.any? %>
+    <%= render @projects, projects: @projects %>
+  <% else %>
+    <div class="bg-gray-100 rounded-lg p-12 text-center">
+      <p class="text-gray-600 mb-4">No projects yet. Create one to get started!</p>
+      <%= link_to "Create Project", new_project_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

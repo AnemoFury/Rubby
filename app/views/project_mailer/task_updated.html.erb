@@ -1,0 +1,21 @@
+<h1>Task Update: <%= @task.title %></h1>
+
+<p>Hi <%= @user.name %>,</p>
+
+<p>A task you're assigned to has been <%= @action %>:</p>
+
+<div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
+  <h2><%= @task.title %></h2>
+  <p><strong>Project:</strong> <%= @task.project.name %></p>
+  <p><strong>Status:</strong> <%= @task.status.humanize %></p>
+  <p><strong>Description:</strong> <%= simple_format(@task.description) %></p>
+</div>
+
+<p>
+  <%= link_to "View Task", project_task_url(@task.project, @task) %>
+</p>
+
+<p>
+  Best regards,<br>
+  Project Hub Team
+</p>

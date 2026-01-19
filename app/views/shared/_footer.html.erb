@@ -1,0 +1,29 @@
+<footer class="bg-gray-900 text-white mt-16">
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-bold text-lg mb-4">Project Hub</h3>
+        <p class="text-gray-400">Real-time task collaboration for modern teams</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Features</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><%= link_to "Real-time Updates", "#", class: "hover:text-white" %></li>
+          <li><%= link_to "Task Management", "#", class: "hover:text-white" %></li>
+          <li><%= link_to "Team Collaboration", "#", class: "hover:text-white" %></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Resources</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><%= link_to "Documentation", "#", class: "hover:text-white" %></li>
+          <li><%= link_to "API Docs", "#", class: "hover:text-white" %></li>
+          <li><%= link_to "Support", "#", class: "hover:text-white" %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+      <p>&copy; <%= Date.today.year %> Project Hub. Built with Rails 8 + ActionCable.</p>
+    </div>
+  </div>
+</footer>

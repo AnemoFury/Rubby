@@ -1,0 +1,13 @@
+config/cable.yml
+local: &local
+  adapter: test
+
+development:
+  <<: *local
+
+test:
+  <<: *local
+
+production:
+  adapter: solid_cable
+  database: db/production.sqlite3
